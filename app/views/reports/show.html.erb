@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @report.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @report.body %>
+</p>
+
+<p>
+  <b>Study:</b>
+  <%= @report.study %>
+</p>
+
+
+<%= link_to 'Edit', edit_study_report_path(@report.study_id, @report) %> |
+<%= link_to 'Back', study_path(@report.study_id) %>

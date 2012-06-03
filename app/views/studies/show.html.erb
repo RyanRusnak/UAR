@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @study.name %>
+</p>
+
+<h1>Listing reports</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @study.reports.each do |report| %>
+  <tr>
+    <td><%= report.title %></td>
+    <td><%= report.body %></td>
+    <td><%= link_to 'Show', study_report_path(report.study_id, report) %></td>
+    <td><%= link_to 'Edit', edit_study_report_path(report.study_id, report) %></td>
+    <td><%= link_to 'Destroy', [report.study, report], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<h2>Add a report:</h2>
+<%= form_for([@study, @study.reports.build]) do |f| %>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Edit', edit_study_path(@study) %> |
+<%= link_to 'Back', studies_path %>
