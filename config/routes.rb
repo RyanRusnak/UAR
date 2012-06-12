@@ -1,7 +1,8 @@
 UAR2::Application.routes.draw do
-  resources :studies do
-    resources :reports
-  end
+    resources :studies do
+      resources :reports
+    end
+
   
   root :to => 'studies#index'
   

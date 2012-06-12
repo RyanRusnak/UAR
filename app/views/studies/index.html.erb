@@ -1,7 +1,7 @@
 <h1>Listing studies</h1>
 
 <% if current_user %>
-  Welcome <%= current_user.name %>!
+  Welcome <%= current_user.name  %>! with id: <%= current_user.uid  %>
   <%= link_to "Sign Out", signout_path %>
 <% else %>
   <%= link_to "Sign in with Twitter", "/auth/twitter" %>
@@ -10,14 +10,16 @@
 <table>
   <tr>
     <th>Name</th>
-    <th></th>
+    <th>User:</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @studies.each do |study| %>
+
   <tr>
     <td><%= study.name %></td>
+	<td><%= study.user %></td>
     <td><%= link_to 'Show', study %></td>
     <td><%= link_to 'Edit', edit_study_path(study) %></td>
     <td><%= link_to 'Destroy', study, :confirm => 'Are you sure?', :method => :delete %></td>
